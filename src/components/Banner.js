@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "../api/axios";
 import requests from "../api/request";
 import "./Banner.css";
+import styled from "styled-components";
 
 const Banner = () => {
   const [movie, setMovie] = useState([]);
@@ -32,7 +33,11 @@ const Banner = () => {
   };
 
   if (isClicked) {
-    return <div>isClicked</div>;
+    return (
+      <Container>
+        <HomeContainer></HomeContainer>
+      </Container>
+    );
   } else {
     return (
       <header
@@ -66,3 +71,17 @@ const Banner = () => {
 };
 
 export default Banner;
+
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+`;
+
+const HomeContainer = styled.div`
+  width: 100%;
+  height: 100%;
+`;
