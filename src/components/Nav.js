@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const Nav = () => {
-  const [show, setShow] = useState(false);
+  const [show, handleShow] = useState(false);
   useEffect(() => {
     window.addEventListener("scroll", () => {
       if (window.scrollY > 50) {
-        setShow(true);
+        handleShow(true);
       } else {
-        setShow(false);
+        handleShow(false);
       }
     });
 
