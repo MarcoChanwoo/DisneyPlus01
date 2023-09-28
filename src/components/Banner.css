@@ -62,3 +62,42 @@
   max-width: 400px;
   height: 80px;
 }
+
+.banner--fadeBottom{
+  height: 7.4rem;
+  background-image: linear-gradient(
+    180deg,
+    transparent,
+    rgba(37,37,37,0.61),
+    #111
+  );
+}
+
+.banner_buttons{
+  display: flex;
+  flex-direction: row;
+}
+
+.banner_button{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.4rem 1rem;
+  margin-right: 1rem;
+}
+
+.banner_button:hover{
+  color: #000;
+  background-color: rgba(170,170,170,0.9);
+  transition: all 0.2s;
+}
+
+.play{
+  background-color: white;
+  color: black;
+}
