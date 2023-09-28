@@ -45,6 +45,7 @@ const Banner = () => {
         </div>
         <p className="banner_description">{movie.overview}</p>
       </div>
+      <div className="banner--fadeBottom" />
     </header>
   );
 };
