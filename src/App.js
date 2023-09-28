@@ -3,6 +3,7 @@ import "./App.css";
 import Nav from "./components/Nav";
 import Banner from "./components/Banner";
 import Category from "./components/Category";
+import Row from "./components/Row";
 
 function App() {
   return (
@@ -10,6 +11,11 @@ function App() {
       <Nav />
       <Banner />
       <Category />
+      <Row
+        title="Tranding Now"
+        id="TN"
+        fetchUrl={requestAnimationFrame.fetchTrending}
+      />
     </Container>
   );
 }
