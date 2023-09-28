@@ -1,0 +1,36 @@
+.slider{
+  position: relative;
+}
+
+.slider_arrow-left{
+  background-clip: content-box;
+  padding: 20px 0;
+  box-sizing: border-box;
+  transform: 400ms all ease-in-out;
+  cursor: pointer;
+  width: 80px;
+  z-index: 1000;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  display: flex;
+}
+
+.slider_arrow-right{
+  background-clip: content-box;
+  padding: 20px 0;
+  box-sizing: border-box;
+  transform: 400ms all ease-in-out;
+  cursor: pointer;
+  width: 80px;
+  z-index: 1000;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+}
