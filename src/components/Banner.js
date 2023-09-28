@@ -32,25 +32,22 @@ const Banner = () => {
     return str?.length > n ? str.substring(0, n) + "..." : str;
   };
 
-  // <iframe width="560" height="315"
-  // src="https://www.youtube.com/embed/oSKmjUyGRN4?si=1NF6lq29vWQtKSqf"
-  // title="YouTube video player" frameborder="0"
-  // allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-  // allowfullscreen></iframe>
-
   if (isClicked) {
     return (
-      <Container>
-        <HomeContainer>
-          <Iframe
-            src={`https://www.youtube.com/embed/${movie.videos.results[0].key}?controls=0autoplay=1&loop=1&mute=1&playlist=${movie.videos.results[0].key}`}
-            width="640"
-            height="360"
-            frameborder="0"
-            allow="autoplay; fullscreen"
-          ></Iframe>
-        </HomeContainer>
-      </Container>
+      <>
+        <Container>
+          <HomeContainer>
+            <Iframe
+              src={`https://www.youtube.com/embed/${movie.videos.results[0].key}?controls=0autoplay=1&loop=1&mute=1&playlist=${movie.videos.results[0].key}`}
+              width="640"
+              height="360"
+              frameborder="0"
+              allow="autoplay; fullscreen"
+            ></Iframe>
+          </HomeContainer>
+        </Container>
+        <button onClick={() => setIsClicked(false)}>X</button>
+      </>
     );
   } else {
     return (
