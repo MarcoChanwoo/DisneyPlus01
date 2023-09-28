@@ -5,6 +5,7 @@ import "./Banner.css";
 
 const Banner = () => {
   const [movie, setMovie] = useState([]);
+  const [isClicked, setIsClicked] = useState(false);
 
   useEffect(() => {
     fetchData();
@@ -30,29 +31,38 @@ const Banner = () => {
     return str?.length > n ? str.substring(0, n) + "..." : str;
   };
 
-  return (
-    <header
-      className="banner"
-      style={{
-        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie.backdrop_path}")`,
-        backgroundPosition: "top center",
-        backgroundSize: "cover",
-      }}
-    >
-      <div className="banner_contents">
-        <h1 className="banner_title">
-          {movie.title || movie.name || movie.original_name}
-        </h1>
-        <div className="banner_buttons">
-          {movie?.videos?.results[0]?.key && (
-            <button className="banner_button play">Play</button>
-          )}
+  if (isClicked) {
+    return <div>isClicked</div>;
+  } else {
+    return (
+      <header
+        className="banner"
+        style={{
+          backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie.backdrop_path}")`,
+          backgroundPosition: "top center",
+          backgroundSize: "cover",
+        }}
+      >
+        <div className="banner_contents">
+          <h1 className="banner_title">
+            {movie.title || movie.name || movie.original_name}
+          </h1>
+          <div className="banner_buttons">
+            {movie?.videos?.results[0]?.key && (
+              <button
+                className="banner_button play"
+                onClick={() => setIsClicked(true)}
+              >
+                Play
+              </button>
+            )}
+          </div>
+          <p className="banner_description">{truncate(movie.overview, 100)}</p>
         </div>
-        <p className="banner_description">{truncate(movie.overview, 100)}</p>
-      </div>
-      <div className="banner--fadeBottom" />
-    </header>
-  );
+        <div className="banner--fadeBottom" />
+      </header>
+    );
+  }
 };
 
 export default Banner;
