@@ -1,6 +1,18 @@
-import React from "react";
+import axios from "../api/axios";
+import React, { useEffect, useState } from "react";
 
-const Row = () => {
+const Row = ({ title, id, fetchUrl }) => {
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    fetchMovieData();
+  }, []);
+
+  const fetchMovieData = async () => {
+    const response = await axios.get(fetchUrl);
+    console.log("response", response);
+  };
+
   return <div>Row</div>;
 };
 
