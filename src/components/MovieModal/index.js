@@ -29,6 +29,8 @@ const MovieModal = ({
           </p>
 
           <h2 className="modal_title">{title ? title : name}</h2>
+          <p className="modal_overview">평점: {vote_average}</p>
+          <p className="modal_overview">{overview}</p>
         </div>
       </div>
     </div>
