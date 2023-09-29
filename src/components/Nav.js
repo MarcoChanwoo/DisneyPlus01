@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 
 const Nav = () => {
   const [show, handleShow] = useState(false);
+  const { pathname } = useLocation();
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -27,11 +30,21 @@ const Nav = () => {
           onClick={() => (window.location.href = "/")}
         />
       </Logo>
+
+      {pathname === "/" ? (
+        <Login>Login</Login>
+      ) : (
+        <Input className="nav_input" type="text" placeholder="검색하세요" />
+      )}
     </NavWrapper>
   );
 };
 
 export default Nav;
+
+const Login = styled.a``;
+
+const Input = styled.input``;
 
 const NavWrapper = styled.nav`
   position: fixed;
