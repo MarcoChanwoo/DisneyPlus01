@@ -44,7 +44,16 @@ export default Nav;
 
 const Login = styled.a``;
 
-const Input = styled.input``;
+const Input = styled.input`
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-color: rgb(0, 0, 0, 0.582);
+  border-radius: 5px;
+  color: white;
+  padding: 5px;
+  border: none;
+`;
 
 const NavWrapper = styled.nav`
   position: fixed;
