@@ -4,18 +4,19 @@ import styled from "styled-components";
 const Nav = () => {
   const [show, handleShow] = useState(false);
   useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 50) {
-        handleShow(true);
-      } else {
-        handleShow(false);
-      }
-    });
-
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener("scroll", () => {});
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const handleScroll = () => {
+    if (window.scrollY > 50) {
+      handleShow(true);
+    } else {
+      handleShow(false);
+    }
+  };
 
   return (
     <NavWrapper show={show}>
