@@ -75,7 +75,7 @@
   scroll-behavior: smooth;
 }
 
-.row_poster::-webkit-scrollbar{
+.row_posters::-webkit-scrollbar{
   display: none;
 }
 
