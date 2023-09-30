@@ -8,12 +8,20 @@ const Nav = () => {
   const { searchValue, setSearchValue } = useState("");
   const navigate = useNavigate();
 
+  const useQuery = () => {
+    return new URLSearchParams(useLocation().search);
+  };
+
+  let query = useQuery();
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  console.log("useLocation.search", useLocation().search);
 
   const handleScroll = () => {
     if (window.scrollY > 50) {
