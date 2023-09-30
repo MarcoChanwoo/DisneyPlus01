@@ -24,7 +24,10 @@ const SearchPage = () => {
         `/search/multi?include_adult=false&query=${searchTerm}`
       );
       searchResults(response.data.result);
-    } catch (error) {}
+      console.log("response", response);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return <div>search</div>;
