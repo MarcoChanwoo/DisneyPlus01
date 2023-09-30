@@ -5,7 +5,7 @@ import styled from "styled-components";
 const Nav = () => {
   const [show, handleShow] = useState(false);
   const { pathname } = useLocation();
-  const { searchValue, setSearchValue } = useState("");
+  const [searchValue, setSearchValue] = useState("");
   const navigate = useNavigate();
 
   const useQuery = () => {
@@ -13,6 +13,7 @@ const Nav = () => {
   };
 
   let query = useQuery();
+  const searchTerm = query.get("q");
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
