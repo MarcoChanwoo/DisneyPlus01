@@ -5,6 +5,7 @@ import styled from "styled-components";
 const Nav = () => {
   const [show, handleShow] = useState(false);
   const { pathname } = useLocation();
+  const { searchValue, setSearchValue } = useState("");
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -21,6 +22,10 @@ const Nav = () => {
     }
   };
 
+  const handleChange = (e) => {
+    setSearchValue(e.target.value);
+  };
+
   return (
     <NavWrapper show={show}>
       <Logo>
@@ -34,7 +39,13 @@ const Nav = () => {
       {pathname === "/" ? (
         <Login>Login</Login>
       ) : (
-        <Input className="nav_input" type="text" placeholder="검색하세요" />
+        <Input
+          value={searchValue}
+          onChange={handleChange}
+          className="nav_input"
+          type="text"
+          placeholder="검색하세요"
+        />
       )}
     </NavWrapper>
   );
@@ -42,7 +53,20 @@ const Nav = () => {
 
 export default Nav;
 
-const Login = styled.a``;
+const Login = styled.a`
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 8px 16px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  border: 1px solid #f9f9f9;
+  transition: all 0.2s ease 0s;
+
+  &:hover {
+    background-color: #f9f9f9;
+    color: gray;
+    border-color: transparent;
+  }
+`;
 
 const Input = styled.input`
   position: fixed;
