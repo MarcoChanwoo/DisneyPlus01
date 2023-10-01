@@ -30,7 +30,27 @@ const SearchPage = () => {
     }
   };
 
-  return <div>search</div>;
+  if (searchResults.length > 0) {
+    return (
+      <section className="search-container">
+        {searchResults.map((movie) => {
+          if (
+            (movie.backdrop_path !== null) &
+            (movie.media_type !== "person")
+          ) {
+          }
+        })}
+      </section>
+    );
+  } else {
+    return (
+      <section className="no-results">
+        <div className="no-results_text">
+          <p>찾고자하는 검색어 "{searchTerm}"에 맞는 영화가 없습니다.</p>
+        </div>
+      </section>
+    );
+  }
 };
 
 export default SearchPage;
