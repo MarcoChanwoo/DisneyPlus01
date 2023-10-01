@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const SearchPage = () => {
   const [searchResults, setSearchResults] = useState([]);
@@ -11,6 +11,7 @@ const SearchPage = () => {
 
   let query = useQuery();
   const searchTerm = query.get("q");
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (searchTerm) {
@@ -23,7 +24,7 @@ const SearchPage = () => {
       const response = await axios.get(
         `/search/multi?include_adult=false&query=${searchTerm}`
       );
-      searchResults(response.data.result);
+      searchResults(response.data.results);
       console.log("response", response);
     } catch (error) {
       console.log(error);
@@ -38,6 +39,22 @@ const SearchPage = () => {
             (movie.backdrop_path !== null) &
             (movie.media_type !== "person")
           ) {
+            const movieImageUrl =
+              "https://image.tmdb.org/t/p/w500" + movie.backdrop_path;
+            return (
+              <div className="movie" key={movie.id}>
+                <div
+                  className="movie_column-poster"
+                  onClick={() => navigate(`/${movie.id}`)}
+                >
+                  <img
+                    src={movieImageUrl}
+                    alt="movie"
+                    className="movie_poster"
+                  />
+                </div>
+              </div>
+            );
           }
         })}
       </section>
