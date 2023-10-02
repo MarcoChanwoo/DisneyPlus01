@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./MovieModal.css";
 
 const MovieModal = ({
@@ -11,6 +11,7 @@ const MovieModal = ({
   vote_average,
   setModalOpen,
 }) => {
+  const ref = useRef();
   return (
     <div className="presentation" role="presentation">
       <div className="wrapper-modal">
