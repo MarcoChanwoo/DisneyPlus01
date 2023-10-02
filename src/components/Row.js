@@ -46,13 +46,15 @@ const Row = ({ title, id, fetchUrl }) => {
         <Content id={id}>
           {movies.map((movie) => (
             <SwiperSlide>
-              <img
-                key={movie.id}
-                className="row_poster"
-                src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
-                alt={movie.name}
-                onClick={() => handleClick(movie)}
-              />
+              <Wrap>
+                <img
+                  key={movie.id}
+                  className="row_poster"
+                  src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
+                  alt={movie.name}
+                  onClick={() => handleClick(movie)}
+                />
+              </Wrap>
             </SwiperSlide>
           ))}
         </Content>
@@ -71,3 +73,5 @@ const Container = styled.div`
 `;
 
 const Content = styled.div``;
+
+const Wrap = styled.div``;
