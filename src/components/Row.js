@@ -3,6 +3,9 @@ import React, { useCallback, useEffect, useState } from "react";
 import "./Row.css";
 import MovieModal from "./MovieModal";
 
+import { Navigation, Pagination, Scrollbar, Ally } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+
 const Row = ({ title, id, fetchUrl }) => {
   const [movies, setMovies] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
