@@ -43,15 +43,17 @@ const Row = ({ title, id, fetchUrl }) => {
         navigation // arrow 버튼 사용 유무
         pagination={{ clickable: true }} // 페이지 버튼 보이게 할 것인지
       >
-        <Content>
+        <Content id={id}>
           {movies.map((movie) => (
-            <img
-              key={movie.id}
-              className="row_poster"
-              src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
-              alt={movie.name}
-              onClick={() => handleClick(movie)}
-            />
+            <SwiperSlide>
+              <img
+                key={movie.id}
+                className="row_poster"
+                src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
+                alt={movie.name}
+                onClick={() => handleClick(movie)}
+              />
+            </SwiperSlide>
           ))}
         </Content>
       </Swiper>
