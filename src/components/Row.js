@@ -11,6 +11,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/scrollbar";
 import "swiper/css/pagination";
+import styled from "styled-components";
 
 const Row = ({ title, id, fetchUrl }) => {
   const [movies, setMovies] = useState([]);
@@ -33,22 +34,38 @@ const Row = ({ title, id, fetchUrl }) => {
   };
 
   return (
-    <div>
+    <Container>
       <h2>{title}</h2>
-      {movies.map((movie) => (
-        <img
-          key={movie.id}
-          className="row_poster"
-          src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
-          alt={movie.name}
-          onClick={() => handleClick(movie)}
-        />
-      ))}
+      <Swiper
+        // install Swiper modules
+        modules={[Navigation, Pagination, Scrollbar, Ally]}
+        loop={true} // loop 기능을 사용할 것인지
+        navigation // arrow 버튼 사용 유무
+        pagination={{ clickable: true }} // 페이지 버튼 보이게 할 것인지
+      >
+        <Content>
+          {movies.map((movie) => (
+            <img
+              key={movie.id}
+              className="row_poster"
+              src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
+              alt={movie.name}
+              onClick={() => handleClick(movie)}
+            />
+          ))}
+        </Content>
+      </Swiper>
       {modalOpen && (
         <MovieModal {...movieSelected} setModalOpen={setModalOpen} />
       )}
-    </div>
+    </Container>
   );
 };
 
 export default Row;
+
+const Container = styled.div`
+  padding: 0 0 26px;
+`;
+
+const Content = styled.div``;
