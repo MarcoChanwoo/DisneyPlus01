@@ -5,12 +5,18 @@ import MovieModal from "./MovieModal";
 
 import { Navigation, Pagination, Scrollbar, Ally } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+// import { Swiper, SwiperSlide } from "swiper/react/swiper-react.js";
 
 // import swiper style
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/scrollbar";
 import "swiper/css/pagination";
+// 참고
+// import "swiper/swiper-bundle.min.css";
+// import "swiper/swiper.min.css";
+// import "swiper/components/navigation/navigation.min.css";
+// import "swiper/components/pagination/pagination.min.css";
 import styled from "styled-components";
 
 const Row = ({ title, id, fetchUrl }) => {
