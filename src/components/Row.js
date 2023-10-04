@@ -3,7 +3,9 @@ import React, { useCallback, useEffect, useState } from "react";
 import "./Row.css";
 import MovieModal from "./MovieModal";
 
-import { Navigation, Pagination, Scrollbar, Ally } from "swiper";
+// import { Swiper, SwiperSlide } from "swiper";
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
+// Ally가 아님을 주의, 모듈이 아니다.
 import { Swiper, SwiperSlide } from "swiper/react";
 // import { Swiper, SwiperSlide } from "swiper/react/swiper-react.js";
 
@@ -44,7 +46,7 @@ const Row = ({ title, id, fetchUrl }) => {
       <h2>{title}</h2>
       <Swiper
         // install Swiper modules
-        modules={[Navigation, Pagination, Scrollbar, Ally]}
+        modules={[Navigation, Pagination, Scrollbar, A11y]}
         loop={true} // loop 기능을 사용할 것인지
         navigation // arrow 버튼 사용 유무
         pagination={{ clickable: true }} // 페이지 버튼 보이게 할 것인지
