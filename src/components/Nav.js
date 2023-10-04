@@ -74,19 +74,34 @@ const Nav = () => {
       {pathname === "/" ? (
         <Login onClick={handleAuth}>Login</Login>
       ) : (
-        <Input
-          value={searchValue}
-          onChange={handleChange}
-          className="nav_input"
-          type="text"
-          placeholder="검색하세요"
-        />
+        <>
+          <Input
+            value={searchValue}
+            onChange={handleChange}
+            className="nav_input"
+            type="text"
+            placeholder="검색하세요"
+          />
+
+          <SignOut>
+            <UserImg />
+            <DropDown>
+              <span>Sign Out</span>
+            </DropDown>
+          </SignOut>
+        </>
       )}
     </NavWrapper>
   );
 };
 
 export default Nav;
+
+const SignOut = styled.div``;
+
+const UserImg = styled.div``;
+
+const DropDown = styled.div``;
 
 const Login = styled.a`
   background-color: rgba(0, 0, 0, 0.6);
