@@ -5,7 +5,7 @@ import MovieModal from "./MovieModal";
 
 // import { Swiper, SwiperSlide } from "swiper";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
-// Ally가 아님을 주의, 모듈이 아니다.
+// Ally가 아님을 주의
 import { Swiper, SwiperSlide } from "swiper/react";
 // import { Swiper, SwiperSlide } from "swiper/react/swiper-react.js";
 
