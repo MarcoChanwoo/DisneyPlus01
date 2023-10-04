@@ -50,7 +50,13 @@ const Center = styled.div`
   flex-direction: column;
 `;
 
-const LogoOne = styled.img``;
+const LogoOne = styled.img`
+  margin-bottom: 12px;
+  max-width: 600px;
+  min-height: 1px;
+  display: block;
+  width: 100%;
+`;
 
 const SignUpLink = styled.a``;
 
