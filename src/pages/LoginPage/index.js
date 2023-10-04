@@ -12,14 +12,28 @@ const LoginPage = () => {
             영화에 대한 프리미어 액세스를 얻으십시오. 디즈니 플러스 가격은 다음
             주부터 1000원 인상됩니다.
           </Description>
-          <LogoTwo src="images/cta-logo-two.svg" alt="logo-two" />
+          <LogoTwo src="/images/cta-logo-two.png" alt="logo-two" />
         </Center>
+        <BgImage />
       </Content>
     </Container>
   );
 };
 
 export default LoginPage;
+
+const BgImage = styled.div`
+  height: 100%;
+  background-position: top;
+  background-image: url("/images/login-background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: -1;
+`;
 
 const Container = styled.section`
   overflow: hidden;
@@ -71,6 +85,17 @@ const SignUpLink = styled.a`
   border-radius: 4px;
 `;
 
-const Description = styled.p``;
+const Description = styled.p`
+  font-size: 11px;
+  margin: 0 0 24px;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+`;
 
-const LogoTwo = styled.img``;
+const LogoTwo = styled.img`
+  max-width: 600px;
+  margin-bottom: 20px;
+  display: inline-block;
+  vertical-align: bottom;
+  width: 100%;
+`;
