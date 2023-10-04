@@ -103,3 +103,16 @@
     max-height: 280px;
   }
 }
+
+.swiper-pagination{
+  text-align: right !important;
+}
+
+.swiper-pagination-bullet{
+  background: gray !important;
+  opacity: 1;
+}
+
+.swiper-pagination-bullet-active{
+  background-color: white !important;
+}
