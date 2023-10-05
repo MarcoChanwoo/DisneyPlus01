@@ -10,13 +10,17 @@ import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Nav = () => {
+  const initialUserData = localStorage.getItem("userData")
+    ? JSON.parse(localStorage.getItem("userData"))
+    : {};
+
   const [show, handleShow] = useState(false);
   const { pathname } = useLocation();
   const [searchValue, setSearchValue] = useState("");
   const navigate = useNavigate();
   const auth = getAuth();
   const provider = new GoogleAuthProvider();
-  const [userData, setUserData] = useState({});
+  const [userData, setUserData] = useState({ initialUserData });
 
   useEffect(() => {
     // firebase를 이용한 인증체크
