@@ -30,7 +30,7 @@ const Nav = () => {
         navigate("/");
       }
     });
-  }, []);
+  }, [auth, navigate, pathname]);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
