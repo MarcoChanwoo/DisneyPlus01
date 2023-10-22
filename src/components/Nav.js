@@ -19,7 +19,7 @@ const Nav = () => {
   const auth = getAuth();
   const provider = new GoogleAuthProvider();
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.user);
+  const userData = useSelector((state) => state.user);
 
   useEffect(() => {
     // firebase를 이용한 인증체크
