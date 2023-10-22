@@ -6,8 +6,10 @@ import {
   signOut,
 } from "firebase/auth";
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { setUser, removeUser } from "../store/userSlice";
 
 const Nav = () => {
   const initialUserData = localStorage.getItem("userData")
@@ -21,6 +23,7 @@ const Nav = () => {
   const auth = getAuth();
   const provider = new GoogleAuthProvider();
   const [userData, setUserData] = useState({ initialUserData });
+  const dispatch = useDispatch();
 
   useEffect(() => {
     // firebase를 이용한 인증체크
@@ -62,8 +65,14 @@ const Nav = () => {
   const handleAuth = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
-        setUserData(result.user);
-        localStorage.setItem("userData", JSON.stringify(result.user));
+        dispatch(
+          setUser({
+            id: result.user.uid,
+            email: result.user.email,
+            displayName: result.user.displayName,
+            photoURL: result.user.photoURL,
+          })
+        );
       })
       .catch((error) => {
         console.log(error);
