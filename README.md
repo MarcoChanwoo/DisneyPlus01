@@ -1,5 +1,6 @@
 Disneyplus app(Mac OS)
 
+- React-based
 - api_key(from TMDB, the movieDB)
 - Axios instance for requesting TMDB API
 - Styled-components
